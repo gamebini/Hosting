@@ -1,1 +1,53 @@
+# Discord Bot Configuration
+bot:
+  token: "MTIxMjY1NTc4NTc3NjEyODAzMA.Gjf_lI.AE6ckiv5yzbYVgGaLLltfbrBocbOB5uyUk88T4"  # 봇 토큰
+  version: "LUABOT Ver.ㅣ2.4.15"  # 봇 버전
+  guild_id: 1205153551366627379  # 메인 서버 ID
 
+# 채널 ID 설정
+channels:
+  log: 1205218949759893626  # 일반 로그 채널
+  admin_log: 1243139947624529961  # 관리자 로그 채널
+  blacklist: 1205237194009092126  # 블랙리스트 채널
+  banlist: 1205237261218750505  # 밴리스트 채널
+
+# 역할 ID 설정
+roles:
+  member: 1205244518082027581  # 멤버 역할
+  non_member: 1212716579746488391  # 비회원 역할
+  line1: 1205197875399753738
+  line2: 1205244496216850503
+  line3: 1227435991673995264
+  line4: 1205244659815813120
+  license: 1248085227553685526  # 라이센스 소유자 역할
+  
+  # 구매등급 역할
+  buyer:
+    basic: 1205251441707458653
+    bronze: 1205251551065677855
+    silver: 1205251736671879259
+    gold: 1205251805064335392
+    platinum: 1205251958206889984
+    diamond: 1205252070618300498
+    red_diamond: 1205252209688973323
+
+# 데이터 파일 경로
+paths:
+  punishment: "C:\\Users\\LENOVO\\Desktop\\Bot_Hosting\\Data\\Lua_Studio\\punishment.json"
+  account: "C:\\Users\\LENOVO\\Desktop\\Bot_Hosting\\Data\\Lua_Studio\\account.json"
+  license: "C:\\Users\\LENOVO\\Desktop\\Bot_Hosting\\Data\\Lua_Studio\\license.json"
+  purchase: "C:\\Users\\LENOVO\\Desktop\\Bot_Hosting\\Data\\Lua_Studio\\purchase.json"
+
+# 구매 등급 설정
+purchase_ranks:
+  red_diamond: 60
+  diamond: 30
+  platinum: 18
+  gold: 12
+  silver: 6
+  bronze: 3
+  buyer: 2
+
+# 경고 설정
+warnings:
+  max: 5  # 최대 경고 횟수
