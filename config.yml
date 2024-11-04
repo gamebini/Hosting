@@ -33,10 +33,10 @@ roles:
 
 # 데이터 파일 경로
 paths:
-  punishment: "C:\\Users\\LENOVO\\Desktop\\Bot_Hosting\\Data\\Lua_Studio\\punishment.json"
-  account: "C:\\Users\\LENOVO\\Desktop\\Bot_Hosting\\Data\\Lua_Studio\\account.json"
-  license: "C:\\Users\\LENOVO\\Desktop\\Bot_Hosting\\Data\\Lua_Studio\\license.json"
-  purchase: "C:\\Users\\LENOVO\\Desktop\\Bot_Hosting\\Data\\Lua_Studio\\purchase.json"
+  punishment: "Lua_Studio\\punishment.json"
+  account: "Lua_Studio\\account.json"
+  license: "Lua_Studio\\license.json"
+  purchase: "Lua_Studio\\purchase.json"
 
 # 구매 등급 설정
 purchase_ranks:
