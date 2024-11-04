@@ -1,3 +1,14 @@
+@app.route('/')
+def home():
+    return "봇이 실행중입니다"
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
+
 import discord
 import random
 import uuid
@@ -1101,5 +1112,5 @@ async def slash2(interaction: discord.Interaction, 대상:discord.Member, 코드
     else:
         await interaction.response.send_message(embed=errorembed)
 
-
+keep_alive()
 client.run(bot_token)
