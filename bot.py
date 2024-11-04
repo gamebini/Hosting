@@ -11,6 +11,15 @@ from discord import ui
 from discord.ext import commands
 import json
 import tempfile
+import os
+import yaml
+
+# config.yml 파일 로드
+def load_config():
+    with open('config.yml', 'r', encoding='utf-8') as f:
+        return yaml.safe_load(f)
+
+config = load_config()
 
 class aclient(discord.Client):
     def __init__(self):
@@ -22,26 +31,24 @@ class aclient(discord.Client):
         if not self.synced:
             await tree.sync()
             self.synced = True
-        print(f'{self.user}이 시작되었습니다') #  봇이 시작하였을때 터미널에 뜨는 말
-        game = discord.Game('LUABOT Ver.ㅣ2.4.15') # 'LUABOT Ver.ㅣNone'
+        print(f'{self.user}이 시작되었습니다')
+        game = discord.Game(config['bot']['version'])
         await self.change_presence(status=discord.Status.online, activity=game)
-
+        
 client = aclient()
 tree = app_commands.CommandTree(client)
-punishment_path = r'C:\Users\LENOVO\Desktop\Bot_Hosting\Data\Lua_Studio\punishment.json'
-account_path = r'C:\Users\LENOVO\Desktop\Bot_Hosting\Data\Lua_Studio\account.json'
-license_path = r'C:\Users\LENOVO\Desktop\Bot_Hosting\Data\Lua_Studio\license.json'
-purchase_path = r'C:\Users\LENOVO\Desktop\Bot_Hosting\Data\Lua_Studio\purchase.json'
 
-#unishment_path = r'C:\Users\helloworld\Desktop\Discord_Work\LUA_Studio\LUABOT\Data\punishment.json'
-#account_path = r'C:\Users\helloworld\Desktop\Discord_Work\LUA_Studio\LUABOT\Data\account.json'
-#license_path = r'C:\Users\helloworld\Desktop\Discord_Work\LUA_Studio\LUABOT\Data\license.json'
-#purchase_path = r'C:\Users\helloworld\Desktop\Discord_Work\LUA_Studio\LUABOT\Data\purchase.json'
+# 경로 설정
+punishment_path = config['paths']['punishment']
+account_path = config['paths']['account']
+license_path = config['paths']['license']
+purchase_path = config['paths']['purchase']
+
+# 봇 토큰
+bot_token = config['bot']['token']
 
 errorembed = discord.Embed(title="ERROR", description="해당 명령어를 사용할 수 있는 권한이 없습니다ㅣYou don't have permission to use that command", color=0xeb9534)
 errorembed.set_footer(text="made by BINI in FICES™")
-
-
 
 def get_invite_expiration(invite_code, bot_token):
     url = f"https://discord.com/api/v10/invites/{invite_code}"
@@ -1093,3 +1100,6 @@ async def slash2(interaction: discord.Interaction, 대상:discord.Member, 코드
         await interaction.response.send_message(embed=embed, ephemeral=True)
     else:
         await interaction.response.send_message(embed=errorembed)
+
+
+client.run(bot_token)
