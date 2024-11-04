@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+
 @app.route('/')
 def home():
     return "봇이 실행중입니다"
@@ -31,6 +33,7 @@ def load_config():
         return yaml.safe_load(f)
 
 config = load_config()
+bot_token = os.getenv('DISCORD_TOKEN')
 
 class aclient(discord.Client):
     def __init__(self):
@@ -54,9 +57,6 @@ punishment_path = config['paths']['punishment']
 account_path = config['paths']['account']
 license_path = config['paths']['license']
 purchase_path = config['paths']['purchase']
-
-# 봇 토큰
-bot_token = config['bot']['token']
 
 errorembed = discord.Embed(title="ERROR", description="해당 명령어를 사용할 수 있는 권한이 없습니다ㅣYou don't have permission to use that command", color=0xeb9534)
 errorembed.set_footer(text="made by BINI in FICES™")
